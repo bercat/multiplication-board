@@ -4,30 +4,13 @@
 let num1 = Math.ceil(Math.random() * 10)
 let num2 = Math.ceil(Math.random() * 10)
 
-
-//getting the question element
-const questionEl = document.getElementById("question");
-
- //getting the input element by id with the value
- let inputEl = document.getElementById("input");
-
-
-//getting the score element by id
-const scoreEl = document.getElementById("score");
-
-let score = JSON.parse(localStorage.getItem("score"));
-
-
-score = 0;
-
-scoreEl.innerText = `${score}`;
+let questionEl = document.getElementById("question");
+let inputEl = document.getElementById("input");
 
 //manipulating the question element
-    //getting the random numbers from num1 and num2 and calculation value
-    questionEl.textContent = `Select a button to calculate the numbers ${num1} and ${num2}`;
+questionEl.textContent = `Select a button to calculate the numbers ${num1} and ${num2}`;
 
 function add() {
-
     console.log('button is clicked')
     let correctAns = num1 + num2
 
@@ -36,7 +19,6 @@ function add() {
 }
 
 function subtract() {
-
     console.log('button is clicked')
     let correctAns = num1 - num2
 
@@ -45,7 +27,6 @@ function subtract() {
 }
 
 function divide() {
-   
     console.log('button is clicked')
     let correctAns = num1 / num2
 
@@ -54,47 +35,64 @@ function divide() {
 }
 
 function multiply() {
-
     console.log('button is clicked')
-
-        //making the correct answer 
-        let correctAns = num1 * num2;
+    let correctAns = num1 * num2;
         
-        document.getElementById("sum-el").textContent = correctAns;
+    document.getElementById("sum-el").textContent = correctAns;
 
   } 
 
-function userAns() {
+  //----------------------------------------------------------------
+  const formEl = document.getElementById("form");
+  const scoreEl = document.getElementById("score");
 
-     //getting the input value
-     const userAns = inputEl.value;
+  let score = JSON.parse(localStorage.getItem("score"));
 
-     // If inputValue is Not a Number or less than one or greater than 10
+  if (!score) {
+    score = 0;
+  }
+
+  scoreEl.innerText = `score: ${score}`;
+
+
+  formEl.addEventListener("submit", () => {
+      //making the correct answer 
+      const add = num1 + num2;
+      const subtract = num1 - num2;
+      const divide = num1 / num2;
+      const multiply = num1 * num2;
+
+
+     //getting the input value and make it a stringify
+     const userAns =  +inputEl.value;
      let text;
 
-    // If inputValue is Not a Number or not equal to correctAns
-    if (isNaN(inputEl) || userAns != correctAns) {
-                
+    // If inputValue is qual to correctAns
+    if (userAns === add || userAns === subtract 
+        || userAns === divide || userAns === multiply) {
+           
+            text =  " correct !  🎉";
+            document.getElementById("text").style.color = "green";
+            document.getElementById("text").textContent = `${text}`;
+
+            score++;
+            scoreEl.innerText = `score: ${score} 🎉`;
+
+            updateLocalStorage()
+            
+    } else {
+
             text = "Input is wrong";
             document.getElementById("text").style.color = "red";
-            score = score - 1;
+            document.getElementById("text").textContent = `${text}`;
+
+            score--;
+            scoreEl.innerText = `score: ${score}`;
+
             updateLocalStorage()
 
-            console.log(score);
-    } else {
-            text =  " correct !";
-            document.getElementById("text").style.color = "green";
-            score = score + 1;
-            updateLocalStorage()
-
-            console.log(score);
     }
-        
-        document.getElementById("text").textContent = `${text}`;
-        document.getElementById("score").textContent = `score: ${score}`;
-        document.getElementById("sum-el").textContent = correctAns;
-        updateLocalStorage()
-}
+})
 
 function updateLocalStorage() {
     localStorage.setItem("score", JSON.stringify(score));
