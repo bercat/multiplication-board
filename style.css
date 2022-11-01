@@ -33,6 +33,12 @@ span {
     margin: 0 auto;
 }
 
+label {
+    padding-top: 34px;
+    width: 80%;
+    margin: 0px auto auto;
+}
+
 
 .info {
     display: flex;
@@ -53,7 +59,8 @@ span {
 
 .input {
     display: block;
-    width: 100%;
+    margin: 0px auto auto;
+    width: 80%;
     box-sizing: border-box;
     font-size: 25px;
     text-align: center;
@@ -73,11 +80,23 @@ input::placeholder {
     color: withe;
     border: none;
     display: block;
-    width: 100%;
+    width: 80%;
     padding: 10px;
     font-size: 20px;
     font-family: sans-serif;
-    margin:  20px 0;
+    margin:  9px auto auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0.3);
+    cursor: pointer;
+    text-transform: uppercase !important;
+}
+
+.btn:last-child {
+    background-color: rgb(53, 94, 197);
+    display: inline-block;
+    width: 80%;
+    font-family: sans-serif;
+    margin: 0px auto auto;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0.3);
     cursor: pointer;
