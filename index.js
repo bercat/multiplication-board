@@ -1,44 +1,67 @@
 //sets const with a random number in it 
   //Math.ceil() method rounds a number rounded UP to the nearest integer.
     //Math.random() * 10 Return a random number between 0 and 10:
-const num1 = Math.ceil(Math.random() * 10)
-const num2 = Math.ceil(Math.random() * 10)
-
+let num1 = Math.ceil(Math.random() * 10)
+let num2 = Math.ceil(Math.random() * 10)
+let calculation = document.getElementsByClassName("btn").value
 
 //getting the question element
 const questionEl = document.getElementById("question");
 
-//manipulating the question element
-    //getting the random numbers from num1 and num2 
-    questionEl.textContent = `What is ${num1} multiply by ${num2} ?`;
 
-//getting the input element by id
-const inputEl = document.getElementById("input").value;
-
-//getting the form element by id
-const formEl = document.getElementById("form");
-
+//getting the score element by id
 const scoreEl = document.getElementById("score");
 
 let score = JSON.parse(localStorage.getItem("score"));
 
-        if (!score) {
-            score = 0;
-        }  
 
-//making the correct answer 
-const correctAns = num1 * num2;
+score = 0;
+
+scoreEl.innerText = `${score}`;
+
+//manipulating the question element
+    //getting the random numbers from num1 and num2 and calculation value
+    questionEl.textContent = `Select a button to calculate the numbers ${num1} and ${num2}`;
+
+function add() {
+
+    //getting the input element by id with the value
+    let inputEl = document.getElementById("input").value;
+
+    let correctAns = num1 + num2
+
+}
+
+function subtract() {
+
+    //getting the input element by id with the value
+    let inputEl = document.getElementById("input").value;
+
+    let correctAns = num1 - num2
+
+}
+
+function divide() {
+    //getting the input element by id with the value
+    let inputEl = document.getElementById("input").value;
+
+    let correctAns = num1 / num2
+
+}
 
 function multiply() {
 
-        // Get the value of the input field with id="input"
-        let inputValue = document.getElementById("input").value;
+        //getting the input element by id with the value
+        let inputEl = document.getElementById("input").value;
 
+        //making the correct answer 
+        let correctAns = num1 * num2;
+        
         // If inputValue is Not a Number or less than one or greater than 10
         let text;
   
         // If inputValue is Not a Number or not equal to correctAns
-        if (isNaN(inputValue) || inputValue != correctAns) {
+        if (isNaN(inputEl) || inputEl != correctAns) {
                 
             text = "Input is wrong";
             document.getElementById("text").style.color = "red";
@@ -55,8 +78,10 @@ function multiply() {
             console.log(score);
         }
         
-        document.getElementById("text").innerHTML = `${text}`;
-        document.getElementById("score").innerHTML = `score: ${score}`;
+        document.getElementById("text").textContent = `${text}`;
+        document.getElementById("score").textContent = `score: ${score}`;
+        document.getElementById("sum-el").textContent = correctAns;
+
         updateLocalStorage()
   } 
 

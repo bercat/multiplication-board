@@ -14,21 +14,25 @@
             <h4 id="text"></h4>
             <h4 class="score" id="score">Score: 0</h4>
         </div>
-        
-        <h1 id="question">What is 
-            <span id="num1-el"></span> 
-            <p id="calculation"></p> by 
-            <span id="num2-el"></span>?
+
+        <!--| fix dette: |-->
+        <h1 id="question"> 
+          <span id="num1-el"></span> 
+          <span id="num2-el"></span>
         </h1>
 
-        <input type="text" class="input" id="input" placeholder="Enter your answer" autofocus autocomplete="off">
-
-        <button class="btn" onclick="add()">Add</button>
-        <button class="btn" onclick="subtract()">Subtract</button>
-        <button class="btn" onclick="divide()">Divide</button>
+        <button type="button" class="btn" onclick="add()">Add</button>
+        <button type="button" class="btn" onclick="subtract()">Subtract</button>
+        <button type="button" class="btn" onclick="divide()">Divide</button>
         <button type="button" class="btn" onclick="multiply()">Multiply</button>
         
         <span id="sum-el">Sum: </span>
+
+        <h5 id="question"> 
+            What do you think the answer is based on the choice of button?
+        </h1>
+        <input type="text" class="input" id="input" placeholder="Enter your answer" autofocus autocomplete="off">
+
     </form>
 
     <script src="index.js"></script>
