@@ -50,9 +50,10 @@ function multiply() {
 
   if (!score) {
     score = 0;
+    
   }
 
-  scoreEl.innerText = `score: ${score}`;
+  scoreEl.textContent = `score: ${score}`;
 
 
   formEl.addEventListener("submit", () => {
@@ -70,13 +71,14 @@ function multiply() {
     // If inputValue is qual to correctAns
     if (userAns === add || userAns === subtract 
         || userAns === divide || userAns === multiply) {
-           
+            
             text =  " correct !  🎉";
             document.getElementById("text").style.color = "green";
             document.getElementById("text").textContent = `${text}`;
 
             score++;
-            scoreEl.innerText = `score: ${score} 🎉`;
+            
+            
 
             updateLocalStorage()
             
@@ -87,14 +89,14 @@ function multiply() {
             document.getElementById("text").textContent = `${text}`;
 
             score--;
-            scoreEl.innerText = `score: ${score}`;
-
+            
             updateLocalStorage()
-
     }
+    updateLocalStorage()
 })
 
 function updateLocalStorage() {
     localStorage.setItem("score", JSON.stringify(score));
-
+  
+    scoreEl.textContent = `score: ${score}`;
   }
