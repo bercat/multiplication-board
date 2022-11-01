@@ -78,7 +78,7 @@ function multiply() {
 
             score++;
             
-            
+        
 
             updateLocalStorage()
             
