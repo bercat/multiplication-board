@@ -29,7 +29,7 @@ let score = JSON.parse(localStorage.getItem("score"));
 //making the correct answer 
 const correctAns = num1 * num2;
 
-function onClick() {
+function multiply() {
 
         // Get the value of the input field with id="input"
         let inputValue = document.getElementById("input").value;
