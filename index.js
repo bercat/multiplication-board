@@ -61,40 +61,6 @@ function onClick() {
   } 
 
 
-
-
-//get the data from the input 
-//Add an event listener that fires when a user clicks the button
- //every time a user submits a form we activate the callback function
-//  btn[0].addEventListener("click", function onClick() {
-    
-    
-//     let text;
-//     //sets the score value
-//     let score = 0;
-    
-//     //checks the answer and change score
-//     if (inputString === correctAns) {
- 
-      
-//         score = score + 1;
-//         updateLocalStorage()
-
-//         text = "Input is valid";
-       
-        
-//     } else {
-//         score = score - 1;
-//         updateLocalStorage();
-
-//         text = "Input not valid";
-        
-//     }
-//     document.getElementById("input").innerHTML = text;
- 
-//   }
-// );
-
 function updateLocalStorage() {
     localStorage.setItem("score", JSON.stringify(score));
 
