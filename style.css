@@ -26,6 +26,12 @@ h1{
     font-family: "Monospace", sans-serif;
 }
 
+span {
+    border-bottom: 2px solid black;
+    padding: 4px;
+}
+
+
 .info {
     display: flex;
     justify-content: space-between;

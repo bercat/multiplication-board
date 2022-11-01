@@ -10,7 +10,7 @@ const questionEl = document.getElementById("question");
 
 //manipulating the question element
     //getting the random numbers from num1 and num2 
-    questionEl.innerText = `What is ${num1} multiply by ${num2} ?`;
+    questionEl.textContent = `What is ${num1} multiply by ${num2} ?`;
 
 //getting the input element by id
 const inputEl = document.getElementById("input").value;
